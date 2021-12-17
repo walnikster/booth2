@@ -20,7 +20,7 @@ public class CounterFacade {
     public void createCounterEntry(String user) {
         Counter counter = new Counter();
         long actualCount = counterRepository.count();
-        counter.setCounter(actualCount++);
+        counter.setCounter(++actualCount);
         counter.setCreated(LocalDate.now());
         counter.setUser(user);
 

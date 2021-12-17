@@ -14,7 +14,7 @@ public class CounterRestEndpoint {
 
     @GetMapping
     public List<Counter> getAll() {
-        return counterFacade.findAllCounters();
+        return this.counterFacade.findAllCounters();
     }
 
     @PostMapping
