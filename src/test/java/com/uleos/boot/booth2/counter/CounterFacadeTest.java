@@ -1,22 +1,25 @@
 package com.uleos.boot.booth2.counter;
 
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
-import static org.mockito.Mockito.*;
-
+import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.test.util.AssertionErrors;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.hasItems;
+import static org.hamcrest.Matchers.is;
+import static org.mockito.Mockito.*;
 
 public class CounterFacadeTest {
 
@@ -53,12 +56,26 @@ public class CounterFacadeTest {
     @Test
     public void testCreate() {
         when(counterRepository.count()).thenReturn(10L);
-        counterFacade.createCounterEntry("testuser1");
+        when(counterRepository.save(any())).thenReturn(getSingleCounter());
+        Counter saved = counterFacade.createCounterEntry("testuser1");
         ArgumentCaptor<Counter> arg = ArgumentCaptor.forClass(Counter.class);
         verify(counterRepository, times(1)).save(arg.capture());
         assertThat(arg.getValue().getCounter(), is(11L));
         assertThat(arg.getValue().getUser(), is("testuser1"));
+        AssertionErrors.assertNotNull("not null", saved);
+        AssertionErrors.assertNotNull("id not null", saved.getId());
+
     }
+
+    private static Counter getSingleCounter() {
+        Counter c1 = new Counter();
+        c1.setUser("Test 1");
+        c1.setCounter(1L);
+        c1.setId(-1L);
+        c1.setCreated(LocalDate.now());
+        return c1;
+    }
+
 
     private static List<Counter> getTestList() {
         List<Counter> testList = new ArrayList<>();

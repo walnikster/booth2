@@ -18,8 +18,8 @@ public class CounterRestEndpoint {
     }
 
     @PostMapping
-    public  void createCounter(@RequestBody  String user) {
-        this.counterFacade.createCounterEntry(user);
+    public  Counter createCounter(@RequestBody  String user) {
+        return this.counterFacade.createCounterEntry(user);
     }
 
 

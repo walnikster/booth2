@@ -17,14 +17,14 @@ public class CounterFacade {
     }
 
 
-    public void createCounterEntry(String user) {
+    public Counter createCounterEntry(String user) {
         Counter counter = new Counter();
         long actualCount = counterRepository.count();
         counter.setCounter(++actualCount);
         counter.setCreated(LocalDate.now());
         counter.setUser(user);
 
-        counterRepository.save(counter);
+        return counterRepository.save(counter);
 
     }
 
