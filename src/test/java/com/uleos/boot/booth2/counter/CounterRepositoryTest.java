@@ -6,7 +6,6 @@ import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.jdbc.Sql;
 
 import java.time.LocalDate;
@@ -16,9 +15,6 @@ import java.util.stream.Collectors;
 @DataJpaTest
 class CounterRepositoryTest {
 
-
-    @Autowired
-    TestEntityManager testEntityManager;
 
     @Autowired
     CounterRepository counterRepository;
@@ -44,7 +40,7 @@ class CounterRepositoryTest {
         Assertions.assertThat(counterRepository.count()).isNotZero();
 
         Assertions.assertThat(all.size()).isEqualTo(2);
-        List<Long> ids = all.stream().map(a -> a.getId()).collect(Collectors.toList());
+        List<Long> ids = all.stream().map(Counter::getId).collect(Collectors.toList());
 
         MatcherAssert.assertThat(ids, CoreMatchers.hasItems(-20L, -10L));
     }

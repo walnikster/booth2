@@ -10,7 +10,6 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -42,13 +41,12 @@ class CounterRestEndpointTest {
         Mockito.when(counterRestEndpoint.getAll()).thenReturn(getTestList());
         List<Counter> all = counterRestEndpoint.getAll();
         MatcherAssert.assertThat(all.size(), CoreMatchers.is(2));
-        MatcherAssert.assertThat(all.stream().map(a -> a.getId()).collect(Collectors.toList()), CoreMatchers.hasItems(-1L, -2L));
+        MatcherAssert.assertThat(all.stream().map(Counter::getId).collect(Collectors.toList()), CoreMatchers.hasItems(-1L, -2L));
         Mockito.verify(counterFacade, Mockito.times(1)).findAllCounters();
 
     }
 
     private static List<Counter> getTestList() {
-        List<Counter> testList = new ArrayList<>();
         Counter c1 = new Counter();
         c1.setUser("Test 1");
         c1.setCounter(1L);
