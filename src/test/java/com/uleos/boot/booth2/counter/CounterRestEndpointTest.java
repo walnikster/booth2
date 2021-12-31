@@ -1,20 +1,25 @@
 package com.uleos.boot.booth2.counter;
 
 import org.hamcrest.CoreMatchers;
-import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import org.mockito.internal.verification.NoMoreInteractions;
 
 import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.mockito.Mockito.*;
+
 
 class CounterRestEndpointTest {
+
+
 
     @Mock
     private CounterFacade counterFacade;
@@ -31,18 +36,19 @@ class CounterRestEndpointTest {
     @Test
     public void testCreate() {
         counterRestEndpoint.createCounter("TestUser");
-        Mockito.verify(counterFacade, Mockito.times(1)).createCounterEntry("TestUser");
+        verify(counterFacade, times(1)).createCounterEntry("TestUser");
+
 
     }
 
     @Test
     public void testFindAll() {
 
-        Mockito.when(counterRestEndpoint.getAll()).thenReturn(getTestList());
+        when(counterRestEndpoint.getAll()).thenReturn(getTestList());
         List<Counter> all = counterRestEndpoint.getAll();
-        MatcherAssert.assertThat(all.size(), CoreMatchers.is(2));
-        MatcherAssert.assertThat(all.stream().map(Counter::getId).collect(Collectors.toList()), CoreMatchers.hasItems(-1L, -2L));
-        Mockito.verify(counterFacade, Mockito.times(1)).findAllCounters();
+        assertThat(all.size(), CoreMatchers.is(2));
+        assertThat(all.stream().map(Counter::getId).collect(Collectors.toList()), CoreMatchers.hasItems(-1L, -2L));
+        verify(counterFacade, Mockito.times(1)).findAllCounters();
 
     }
 

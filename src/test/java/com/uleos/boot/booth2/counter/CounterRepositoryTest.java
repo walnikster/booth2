@@ -1,7 +1,5 @@
 package com.uleos.boot.booth2.counter;
 
-import org.assertj.core.api.Assertions;
-import org.hamcrest.CoreMatchers;
 import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,37 +10,32 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.hamcrest.CoreMatchers.hasItems;
+
 @DataJpaTest
 class CounterRepositoryTest {
 
 
     @Autowired
-    CounterRepository counterRepository;
+    private CounterRepository counterRepository;
 
     @Test
     public void testCreate() {
-
-
-        Assertions.assertThat(counterRepository.count()).isZero();
+        assertThat(counterRepository.count()).isZero();
         counterRepository.save(createCounter());
-        Assertions.assertThat(counterRepository.count()).isNotZero();
-
-
+        assertThat(counterRepository.count()).isNotZero();
     }
 
 
     @Test
     @Sql("/insertsomecounter.sql")
     public void testFindAll() {
-
-
         List<Counter> all = counterRepository.findAll();
-        Assertions.assertThat(counterRepository.count()).isNotZero();
-
-        Assertions.assertThat(all.size()).isEqualTo(2);
+        assertThat(counterRepository.count()).isNotZero();
+        assertThat(all.size()).isEqualTo(2);
         List<Long> ids = all.stream().map(Counter::getId).collect(Collectors.toList());
-
-        MatcherAssert.assertThat(ids, CoreMatchers.hasItems(-20L, -10L));
+        MatcherAssert.assertThat(ids, hasItems(-20L, -10L));
     }
 
     private static Counter createCounter() {

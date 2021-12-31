@@ -1,6 +1,8 @@
 package com.uleos.boot.booth2.counter;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Entity;

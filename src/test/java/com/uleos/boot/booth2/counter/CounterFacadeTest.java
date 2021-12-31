@@ -1,14 +1,12 @@
 package com.uleos.boot.booth2.counter;
 
 
-import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.test.util.AssertionErrors;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -17,9 +15,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.hasItems;
-import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.*;
+import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.*;
+import static org.springframework.test.util.AssertionErrors.assertNotNull;
 
 public class CounterFacadeTest {
 
@@ -62,8 +61,8 @@ public class CounterFacadeTest {
         verify(counterRepository, times(1)).save(arg.capture());
         assertThat(arg.getValue().getCounter(), is(11L));
         assertThat(arg.getValue().getUser(), is("testuser1"));
-        AssertionErrors.assertNotNull("not null", saved);
-        AssertionErrors.assertNotNull("id not null", saved.getId());
+        assertNotNull("not null", saved);
+        assertNotNull("id not null", saved.getId());
 
     }
 
