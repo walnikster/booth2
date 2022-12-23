@@ -60,7 +60,7 @@ public class CounterFacadeTest {
         ArgumentCaptor<Counter> arg = ArgumentCaptor.forClass(Counter.class);
         verify(counterRepository, times(1)).save(arg.capture());
         assertThat(arg.getValue().getCounter(), is(11L));
-        assertThat(arg.getValue().getUser(), is("testuser1"));
+        assertThat(arg.getValue().getUsername(), is("testuser1"));
         assertNotNull("not null", saved);
         assertNotNull("id not null", saved.getId());
 
@@ -68,7 +68,7 @@ public class CounterFacadeTest {
 
     private static Counter getSingleCounter() {
         Counter c1 = new Counter();
-        c1.setUser("Test 1");
+        c1.setUsername("Test 1");
         c1.setCounter(1L);
         c1.setId(-1L);
         c1.setCreated(LocalDate.now());
@@ -79,12 +79,12 @@ public class CounterFacadeTest {
     private static List<Counter> getTestList() {
         List<Counter> testList = new ArrayList<>();
         Counter c1 = new Counter();
-        c1.setUser("Test 1");
+        c1.setUsername("Test 1");
         c1.setCounter(1L);
         c1.setId(-1L);
         c1.setCreated(LocalDate.now());
         Counter c2 = new Counter();
-        c2.setUser("Test 2");
+        c2.setUsername("Test 2");
         c2.setCounter(2L);
         c2.setId(-2L);
         c2.setCreated(LocalDate.now());

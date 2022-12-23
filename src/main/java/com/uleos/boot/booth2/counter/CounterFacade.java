@@ -22,7 +22,7 @@ public class CounterFacade {
         long actualCount = counterRepository.count();
         counter.setCounter(++actualCount);
         counter.setCreated(LocalDate.now());
-        counter.setUser(user);
+        counter.setUsername(user);
 
         return counterRepository.save(counter);
 

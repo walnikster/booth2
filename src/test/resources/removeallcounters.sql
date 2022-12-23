@@ -1,0 +1,2 @@
+delete from counter;
+commit;

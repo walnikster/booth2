@@ -21,6 +21,7 @@ class CounterRepositoryTest {
     private CounterRepository counterRepository;
 
     @Test
+    @Sql(value = "/removeallcounters.sql", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
     public void testCreate() {
         assertThat(counterRepository.count()).isZero();
         counterRepository.save(createCounter());
@@ -29,7 +30,7 @@ class CounterRepositoryTest {
 
 
     @Test
-    @Sql("/insertsomecounter.sql")
+    @Sql(value = "/insertsomecounter.sql", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
     public void testFindAll() {
         List<Counter> all = counterRepository.findAll();
         assertThat(counterRepository.count()).isNotZero();
@@ -42,7 +43,7 @@ class CounterRepositoryTest {
         Counter c = new Counter();
         c.setId(null);
         c.setCreated(LocalDate.now());
-        c.setUser("testuser");
+        c.setUsername("testuser");
         c.setCounter(10L);
         return c;
     }

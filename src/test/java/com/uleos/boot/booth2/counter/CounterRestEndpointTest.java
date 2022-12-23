@@ -54,12 +54,12 @@ class CounterRestEndpointTest {
 
     private static List<Counter> getTestList() {
         Counter c1 = new Counter();
-        c1.setUser("Test 1");
+        c1.setUsername("Test 1");
         c1.setCounter(1L);
         c1.setId(-1L);
         c1.setCreated(LocalDate.now());
         Counter c2 = new Counter();
-        c2.setUser("Test 2");
+        c2.setUsername("Test 2");
         c2.setCounter(2L);
         c2.setId(-2L);
         c2.setCreated(LocalDate.now());

@@ -1,14 +1,12 @@
 package com.uleos.boot.booth2.counter;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import java.time.LocalDate;
 
 @Getter
@@ -21,6 +19,6 @@ public class Counter {
     private Long id;
     private Long counter;
     private LocalDate created;
-    private String user;
+    private String username;
 
 }
