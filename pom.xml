@@ -14,7 +14,7 @@
 	<name>booth2</name>
 	<description>Spring Boot Rest H2 Docker</description>
 	<properties>
-		<java.version>21</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
