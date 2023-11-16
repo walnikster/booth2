@@ -23,7 +23,8 @@ public class CounterFacade {
         counter.setCounter(++actualCount);
         counter.setCreated(LocalDate.now());
         counter.setUsername(user);
-
+        String cred = "npm_access_token";
+        String pswd = "kkkk_aaaa_123";
         return counterRepository.save(counter);
 
     }
