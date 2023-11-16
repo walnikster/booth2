@@ -77,7 +77,6 @@ public class CounterFacadeTest {
 
 
     private static List<Counter> getTestList() {
-        List<Counter> testList = new ArrayList<>();
         Counter c1 = new Counter();
         c1.setUsername("Test 1");
         c1.setCounter(1L);
