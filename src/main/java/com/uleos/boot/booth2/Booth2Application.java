@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaRepositories
 public class Booth2Application {
 
+	// prodpassword=123DdDd44[]0!
 	public static void main(String[] args) {
 		SpringApplication.run(Booth2Application.class, args);
 	}
