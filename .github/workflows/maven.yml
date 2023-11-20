@@ -42,7 +42,7 @@ jobs:
           cache: maven
       - name: Test with Maven
         run: mvn -B test --file pom.xml
-  checkdep:
+  integrationtest:
       runs-on: ubuntu-latest
       steps:
       - uses: actions/checkout@v3
@@ -53,4 +53,4 @@ jobs:
           distribution: 'corretto'
           cache: maven
       - name: Check dependencies with Maven
-        run: mvn -B check --file pom.xml        
+        run: mvn -B verify --file pom.xml        
