@@ -37,7 +37,7 @@ public class CounterFacadeTest {
     public void testFindAllEmptyList() {
         when(counterRepository.findAll()).thenReturn(Collections.emptyList());
         List<Counter> allCounters = counterFacade.findAllCounters();
-        assertThat(allCounters.size(), is(1));
+        assertThat(allCounters.size(), is(0));
         verify(counterRepository, times(1)).findAll();
     }
 
