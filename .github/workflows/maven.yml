@@ -55,7 +55,7 @@ jobs:
       - name: Site with Maven
         run: mvn -B clean site --file pom.xml
       - name: store site result 
-        run: mkdir site && tar -zvf gh-pages.tar target/site
+        run: mkdir site && tar -czvf gh-pages.tar target/site
       - name: Fix permissions
         run: |
           chmod -c -R +rX "_site/" | while read line; do
