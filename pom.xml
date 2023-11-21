@@ -124,7 +124,7 @@
 		                        <id>report</id>
 		                        <phase>pre-site</phase>
 		                        <goals>
-		                            <goal>report-aggregate</goal>
+		                            <goal>report</goal>
 		                        </goals>
 		                    </execution>
 		                    -->
@@ -162,7 +162,7 @@
 	          <reportSet>
 	            <reports>
 	              <!-- select non-aggregate reports -->
-	              <report>aggregate</report>
+	              <report>report-aggregate</report>
 	            </reports>
 	          </reportSet>
 	        </reportSets>
