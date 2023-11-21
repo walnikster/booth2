@@ -55,12 +55,7 @@ jobs:
       - name: Site with Maven
         run: mvn -B clean site --file pom.xml
       - name: store site result 
-        run: mkdir site && tar -czvf site/github-pages.tar.gz target/site
-      - name: Fix permissions
-        run: |
-          chmod -c -R +rX "site/" | while read line; do
-          echo "::warning title=Invalid file permissions automatically fixed::$line"
-          done
+        run: tar -czvf github-pages.tar.gz target/site
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v2
   integrationtest:
