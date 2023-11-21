@@ -18,12 +18,12 @@
 		<snakeyaml.version>2.0</snakeyaml.version>
 	</properties>
 	
-<distributionManagement>
-  <site>
-    <id>github</id>
-    <url>scm:git:git@github.com:walnikster/walnikster.github.io.git</url>
-  </site>
-</distributionManagement>
+	<distributionManagement>
+	  <site>
+	    <id>github</id>
+	    <url>scm:git:git@github.com:walnikster/walnikster.github.io.git</url>
+	  </site>
+	</distributionManagement>
 	
 	<dependencies>
 		<dependency>
@@ -124,19 +124,17 @@
 		</plugins>
 	</build>
 
-<reporting>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-project-info-reports-plugin</artifactId>
-        
-      </plugin>
-	<plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-report-plugin</artifactId>
-        
-      </plugin>
-    </plugins>
-  </reporting>
+	<reporting>
+	    <plugins>
+	      <plugin>
+	        <groupId>org.apache.maven.plugins</groupId>
+	        <artifactId>maven-project-info-reports-plugin</artifactId>
+	      </plugin>
+		<plugin>
+	        <groupId>org.apache.maven.plugins</groupId>
+	        <artifactId>maven-surefire-report-plugin</artifactId>
+	      </plugin>
+	    </plugins>
+	</reporting>
 
 </project>
