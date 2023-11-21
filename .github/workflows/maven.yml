@@ -55,8 +55,16 @@ jobs:
       - name: Check dependencies with Maven
         run: mvn -B verify --file pom.xml
       - name: store result 
-        run: mkdir staging && cp target/dependency-check-report.html staging
-      - uses: actions/upload-artifact@v1
+        run: mkdir checks && cp target/dependency-check-report.html checks
+      - uses: actions/upload-artifact@v3
         with:
             name: dependecycheck
-            path: staging
+            path: checks
+      - name: Site with Maven
+        run: mvn -B site --file pom.xml
+      - name: store site result 
+        run: mkdir site && cp -r target/site site
+      - uses: actions/upload-artifact@v3
+        with:
+            name: site
+            path: site
