@@ -118,8 +118,7 @@
 		                            <goal>prepare-agent</goal>
 		                        </goals>
 		                    </execution>
-		                    <!-- no explicit report generation here!
-		                         (commented for illustration purposes)
+		                   
 		                    <execution>
 		                        <id>report</id>
 		                        <phase>pre-site</phase>
@@ -127,7 +126,7 @@
 		                            <goal>report</goal>
 		                        </goals>
 		                    </execution>
-		                    -->
+		                    
 		                </executions>
 		            </plugin>
 		</plugins>
