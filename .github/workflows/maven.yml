@@ -52,14 +52,6 @@ jobs:
           java-version: '17'
           distribution: 'corretto'
           cache: maven
-      - name: Site with Maven
-        run: mvn -B clean site --file pom.xml
-      - name: store site result 
-        run: mkdir _site && tar -czvf github-pages.tar.gz target/site
-      - name: copy tar to _site
-        run: cp github-pages.tar.gz _site/
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v2
   integrationtest:
       if: false
       runs-on: ubuntu-latest
