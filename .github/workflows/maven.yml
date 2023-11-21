@@ -53,7 +53,7 @@ jobs:
           distribution: 'corretto'
           cache: maven
       - name: Site with Maven
-        run: mvn -B test site --file pom.xml
+        run: mvn -B clean site site:stage scm-publish:publish-scm --file pom.xml
       - name: store site result 
         run: mkdir site && cp -r target/site site
       - uses: actions/upload-artifact@v3
