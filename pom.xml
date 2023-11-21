@@ -108,10 +108,28 @@
 			  <version>3.12.1</version>
 			</plugin>
 			<plugin>
-			  <groupId>org.jacoco</groupId>
-			  <artifactId>jacoco-maven-plugin</artifactId>
-			  <version>0.8.11</version>
-			</plugin>
+		                <groupId>org.jacoco</groupId>
+		                <artifactId>jacoco-maven-plugin</artifactId>
+		                <version>0.8.11</version>
+		                <executions>
+		                    <execution>
+		                        <id>prepare</id>
+		                        <goals>
+		                            <goal>prepare-agent</goal>
+		                        </goals>
+		                    </execution>
+		                    <!-- no explicit report generation here!
+		                         (commented for illustration purposes)
+		                    <execution>
+		                        <id>report</id>
+		                        <phase>pre-site</phase>
+		                        <goals>
+		                            <goal>report</goal>
+		                        </goals>
+		                    </execution>
+		                    -->
+		                </executions>
+		            </plugin>
 		</plugins>
 	</build>
 
