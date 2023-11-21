@@ -55,7 +55,7 @@ jobs:
       - name: Site with Maven
         run: mvn -B clean site --file pom.xml
       - name: store site result 
-        run: tar -czvf github-pages.tar.gz target/site
+        run: mkdir _site && tar -czvf github-pages.tar.gz target/site
       - name: copy tar to _site
         run: cp github-pages.tar.gz _site/
       - name: Upload Pages artifact
