@@ -53,7 +53,7 @@ jobs:
           distribution: 'corretto'
           cache: maven
       - name: Site with Maven
-        run: mvn -B clean site site:stage --file pom.xml
+        run: mvn -B clean site --file pom.xml
       - name: store site result 
         run: mkdir site && cp -r target/site gh-pages
       - name: Upload Pages artifact
