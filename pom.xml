@@ -18,12 +18,6 @@
 		<snakeyaml.version>2.0</snakeyaml.version>
 	</properties>
 	
-	<distributionManagement>
-	  <site>
-	    <id>github</id>
-	    <url>scm:git:git@github.com:walnikster/walnikster.github.io.git</url>
-	  </site>
-	</distributionManagement>
 	
 	<dependencies>
 		<dependency>
@@ -113,14 +107,7 @@
 			  <artifactId>maven-site-plugin</artifactId>
 			  <version>3.7.1</version>
 			</plugin>
-			<plugin>
-			  <groupId>org.apache.maven.plugins</groupId>
-			  <artifactId>maven-scm-publish-plugin</artifactId>
-			  <version>3.0.0</version>
-			  <configuration>
-			    <scmBranch>master</scmBranch>
-			  </configuration>
-			</plugin>
+			
 		</plugins>
 	</build>
 
