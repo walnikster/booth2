@@ -161,7 +161,7 @@
 	          <reportSet>
 	            <reports>
 	              <!-- select non-aggregate reports -->
-	              <report>report-aggregate</report>
+	              <report>report</report>
 	            </reports>
 	          </reportSet>
 	        </reportSets>
