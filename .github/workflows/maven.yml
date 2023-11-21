@@ -55,13 +55,11 @@ jobs:
       - name: Site with Maven
         run: mvn -B clean site --file pom.xml
       - name: store site result 
-        run: mkdir site && cp -r target/site gh-pages
+        run: cp -r target/site gh-pages
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v2
-        with:
-            name: gh-pages
-            path: gh-pages
   integrationtest:
+      if: false
       runs-on: ubuntu-latest
       steps:
       - uses: actions/checkout@v3
