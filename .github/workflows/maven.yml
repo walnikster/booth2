@@ -61,7 +61,7 @@ jobs:
             name: dependecycheck
             path: checks
       - name: Site with Maven
-        run: mvn -B site --file pom.xml
+        run: mvn -B test site --file pom.xml
       - name: store site result 
         run: mkdir site && cp -r target/site site
       - uses: actions/upload-artifact@v3
