@@ -53,13 +53,14 @@ jobs:
           distribution: 'corretto'
           cache: maven
       - name: Site with Maven
-        run: mvn -B clean site site:stage scm-publish:publish-scm --file pom.xml
+        run: mvn -B clean site site:stage --file pom.xml
       - name: store site result 
-        run: mkdir site && cp -r target/site site
-      - uses: actions/upload-artifact@v3
+        run: mkdir site && cp -r target/site gh-pages
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v2
         with:
-            name: site
-            path: site
+            name: gh-pages
+            path: gh-pages
   integrationtest:
       runs-on: ubuntu-latest
       steps:
