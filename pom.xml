@@ -249,7 +249,8 @@
             <version>2.16.2</version>
              <configuration>
                  <onlyProjectDependencies>true</onlyProjectDependencies>
-                 <onlyProjectPlugins>true</onlyProjectPlugins>     
+                 <onlyProjectPlugins>true</onlyProjectPlugins>
+                 <onlyUpgradable>true</onlyUpgradable>     
              </configuration>
             <reportSets>
                 <reportSet>
