@@ -17,6 +17,11 @@
         <java.version>17</java.version>
         <snakeyaml.version>2.0</snakeyaml.version>
     </properties>
+    <scm>
+       <connection>scm:git:https://github.com/walnikster/booth2/</connection>
+       <developerConnection>scm:git:https://github.com/walnikster/booth2/</developerConnection>
+       <url>scm:git:https://github.com/walnikster/booth2/</url>
+    </scm>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -282,6 +287,13 @@
                  <artifactId>jdepend-maven-plugin</artifactId>
                  <version>2.0</version>
         </plugin>
+        <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-changelog-plugin</artifactId>
+            <version>2.3</version>
+        </plugin>
+    </plugins>         
         </plugins>
     </reporting>
 
