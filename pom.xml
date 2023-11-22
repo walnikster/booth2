@@ -243,6 +243,31 @@
                    </tagListOptions>
                  </configuration>     
             </plugin>
+            <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>versions-maven-plugin</artifactId>
+            <version>2.16.2</version>
+            <reportSets>
+                <reportSet>
+                    <id>dependency-updates-report</id>
+                    <reports>
+                        <report>dependency-updates-report</report>
+                    </reports>
+                </reportSet>
+                <reportSet>
+                    <id>plugin-updates-report</id>
+                    <reports>
+                        <report>plugin-updates-report</report>
+                    </reports>
+                </reportSet>
+                <reportSet>
+                    <id>property-updates-report</id>
+                    <reports>
+                        <report>property-updates-report</report>
+                    </reports>
+                </reportSet>
+            </reportSets>
+        </plugin>
         </plugins>
     </reporting>
 
