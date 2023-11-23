@@ -232,12 +232,17 @@
                    <tagListOptions>
                      <tagClasses>
                        <tagClass>
-                         <displayName>Todo Work</displayName>
+                         <displayName>Todo</displayName>
                          <tags>
                            <tag>
                              <matchString>todo</matchString>
                              <matchType>ignoreCase</matchType>
                            </tag>
+                         </tags>
+                        </tagClass>
+                        <tagClass>
+                         <displayName>Fixme</displayName>
+                         <tags>
                            <tag>
                              <matchString>FIXME</matchString>
                              <matchType>ignoreCase</matchType>
