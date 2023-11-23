@@ -243,8 +243,8 @@
                              <matchType>ignoreCase</matchType>
                            </tag>
                          </tags>
-                         <\tagClass>      
-                         <tagClass>
+                        </tagClass>      
+                        <tagClass>
                           <displayName>Deprecated</displayName>
                           <tags>
                            <tag>
