@@ -57,7 +57,7 @@ jobs:
       uses: actions/cache@v2
       with:
           path: ~/.m2/repository
-          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}-codeql.yml
           restore-keys: |
             ${{ runner.os }}-maven-    
     # Initializes the CodeQL tools for scanning.
