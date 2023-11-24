@@ -22,8 +22,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # Build job
-  build:
+  setup:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -42,7 +41,12 @@ jobs:
           path: ~/.m2/repository
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}-jekyll-gh-pages.yml
           restore-keys: |
-            ${{ runner.os }}-maven-      
+            ${{ runner.os }}-maven-
+  # Build job
+  build:
+    runs-on: ubuntu-latest
+    needs: setup
+    steps:
       - name: build site
         run: mvn -B clean site --file pom.xml
         
