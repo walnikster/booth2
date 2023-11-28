@@ -301,7 +301,12 @@
                 <type>range</type>
                 <range>30</range>
             </configuration>
-         </plugin>     
+         </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jxr-plugin</artifactId>
+            <version>3.3.2-SNAPSHOT</version>
+          </plugin>        
         </plugins>
     </reporting>
 </project>
