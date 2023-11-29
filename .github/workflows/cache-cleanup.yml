@@ -12,14 +12,29 @@ jobs:
           
           echo "Fetching list of cache key"
           cacheKeysForPR=$(gh actions-cache list -R $REPO -B $BRANCH -L 100 | cut -f 1 )
-
-          ## Setting this to not fail the workflow while deleting cache keys. 
-          set +e
-          echo "Deleting caches..."
-          for cacheKey in $cacheKeysForPR
-          do
-              gh actions-cache delete $cacheKey -R $REPO -B $BRANCH --confirm
-          done
+          
+          x=$(gh actions-cache list -R $REPO -B $BRANCH | wc -l)
+          echo "aaa $x"
+          if (($x > 5));then
+              echo "a"
+              y=$((x-5))
+              echo "b"
+              cacheKeysForPR=$(gh actions-cache list -R $REPO -B $BRANCH -L $y --order asc --sort last-used | cut -f 1 )
+              echo "c"
+              echo "aaa $(gh actions-cache list -R $REPO -B $BRANCH -L $y --order asc --sort last-used | wc -l)"
+              echo "d"
+              ## Setting this to not fail the workflow while deleting cache keys. 
+              set +e
+              echo "Deleting caches..."
+              for cacheKey in $cacheKeysForPR
+              do
+                  echo "Fetching list of cache key $cacheKey"
+                  ## gh actions-cache delete $cacheKey -R $REPO -B $BRANCH --confirm
+              done
+          fi
+          echo "aaa $x"
+          
+          
           echo "Done"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
