@@ -24,7 +24,7 @@ public class CounterFacade {
         counter.setCreated(LocalDate.now());
         counter.setUsername(user);
         if (actualCount > 100000) {
-            counter.setUsername(user + "10");
+            counter.setUsername(user + "20");
         }
         return counterRepository.save(counter);
 
