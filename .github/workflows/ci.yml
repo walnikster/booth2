@@ -58,7 +58,6 @@ jobs:
         run: mvn -B test --file pom.xml
   
   integrationtest:
-      if: false
       runs-on: ubuntu-latest
       steps:
       - uses: actions/checkout@v3
