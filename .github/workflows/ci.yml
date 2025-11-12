@@ -78,7 +78,7 @@ jobs:
         run: mvn -B verify --file pom.xml
       - name: store result 
         run: mkdir checks && cp target/dependency-check-report.html checks
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
             name: dependecycheck
             path: checks
