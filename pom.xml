@@ -16,6 +16,10 @@
     <properties>
         <java.version>21</java.version>
         <snakeyaml.version>2.0</snakeyaml.version>
+        <dependency-check-maven.version>12.1.8</dependency-check-maven.version>
+        <lombok.version>1.18.42</lombok.version>
+        <javamelody-spring-boot-starter.version>2.5.1</javamelody-spring-boot-starter.version>
+        <h2.version>2.2.224</h2.version>
     </properties>
     <scm>
        <connection>scm:git:https://github.com/walnikster/booth2/</connection>
@@ -41,18 +45,18 @@
         <dependency>
             <groupId>net.bull.javamelody</groupId>
             <artifactId>javamelody-spring-boot-starter</artifactId>
-            <version>2.5.1</version>
+            <version>${javamelody-spring-boot-starter.version}</version>
         </dependency>
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
-            <version>2.2.224</version>
+            <version>${h2.version}</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.42</version>
+            <version>${lombok.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -70,19 +74,11 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
-                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.owasp</groupId>
                 <artifactId>dependency-check-maven</artifactId>
-                <version>12.1.8</version>
+                <version>${dependency-check-maven.version}</version>
                 <configuration>
                     <failBuildOnCVSS>7</failBuildOnCVSS>
                 </configuration>
@@ -102,7 +98,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-site-plugin</artifactId>
-                <version>3.12.0</version>
+                <version>3.21.0</version>
             </plugin>
             <plugin>
                 <groupId>org.jacoco</groupId>
@@ -141,7 +137,7 @@
             <plugin>
                 <groupId>org.owasp</groupId>
                 <artifactId>dependency-check-maven</artifactId>
-                <version>12.1.8</version>
+                <version>${dependency-check-maven.version}</version>
                 <configuration>
                     <name>Vulnerabilities</name>
                 </configuration> 
@@ -208,11 +204,11 @@
                     </reportSet>
                 </reportSets>
             </plugin>
-            <plugin>
+             <plugin>
                      <groupId>org.apache.maven.plugins</groupId>
                      <artifactId>maven-jxr-plugin</artifactId>
                      <version>3.6.0</version>
-            </plugin> 
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
@@ -293,14 +289,12 @@
                 </reportSet>
             </reportSets>
         </plugin>
-                 <!-- 
-        <plugin>
-                 <groupId>org.codehaus.mojo</groupId>
-                 <artifactId>jdepend-maven-plugin</artifactId>
-                 <version>2.0</version>
-        </plugin>
-
-        <plugin>
+<!--        <plugin>-->
+<!--                <groupId>org.codehaus.mojo</groupId>-->
+<!--                <artifactId>jdepend-maven-plugin</artifactId>-->
+<!--                <version>2.0</version>-->
+<!--        </plugin>-->
+       <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-changelog-plugin</artifactId>
             <version>3.0.0-M1</version>
@@ -309,7 +303,6 @@
                 <range>30</range>
             </configuration>
          </plugin>
-                 -->
         </plugins>
     </reporting>
 </project>
